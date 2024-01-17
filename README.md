@@ -93,10 +93,10 @@ In case the above `requirements.txt` don't work, here are the commands used to d
 # Set up virtual/conda environment of your choosing & activate... then install the following:
 pip install --upgrade "jax[cpu]"
 pip install flax
-pip install torch torchvision torchaudio
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 
 # Defaults
-pip install black celluloid flake8 google-cloud-storage isort ipython matplotlib pre-commit seaborn tensorflow tqdm
+pip install black celluloid flake8 google-cloud-storage isort ipython matplotlib pre-commit seaborn tensorflow tqdm datasets hydra-core
 
 # Set up pre-commit
 pre-commit install
@@ -114,7 +114,7 @@ pip install flax
 pip install torch==1.10.1+cpu torchvision==0.11.2+cpu torchaudio==0.10.1+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
 
 # Defaults
-pip install black celluloid flake8 google-cloud-storage isort ipython matplotlib pre-commit seaborn tensorflow tqdm
+pip install black celluloid flake8 google-cloud-storage isort ipython matplotlib pre-commit seaborn tensorflow tqdm datasets hydra-core
 
 # Set up pre-commit
 pre-commit install

@@ -7,6 +7,7 @@ import jax.numpy as np
 import optax
 import torch
 from flax import linen as nn
+from flax.core import unfreeze
 from flax.training import checkpoints, train_state
 from omegaconf import DictConfig, OmegaConf
 from tqdm import tqdm
@@ -77,7 +78,7 @@ def create_train_state(
         np.array(next(iter(trainloader))[0].numpy()),
     )
     # Note: Added immediate `unfreeze()` to play well w/ Optax. See below!
-    params = params["params"].unfreeze()
+    params = unfreeze(params["params"])
 
     # Handle learning rates:
     # - LR scheduler
@@ -301,6 +302,7 @@ def example_train(
     seed: int,
     model: DictConfig,
     train: DictConfig,
+    wandb: DictConfig,
 ):
     # Warnings and sanity checks
     if not train.checkpoint:
